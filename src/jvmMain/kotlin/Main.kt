@@ -1,9 +1,6 @@
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -48,10 +45,10 @@ fun App() {
                 Image(
                     painter = painterResource("images/0.png"),
                     contentDescription = "Sample",
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier.defaultMinSize()
                 )
             }
-            Column(Modifier.align(Alignment.Bottom), Arrangement.Center, Alignment.End) {
+            Column(Modifier.align(Alignment.Top), Arrangement.Center, Alignment.End) {
                 Button(onClick = {
                     text = "Hello, Desktop!"
                 }) {
@@ -62,7 +59,6 @@ fun App() {
                 }) {
                     Text(text2)
                 }
-
             }
 
         }
