@@ -18,7 +18,7 @@ fun TeamDropDown() {
         "Resurrected Warriors", "Royals", "Rugrats", "Sentai Squad")
 
      var mSelectedText by remember { mutableStateOf("") }
-     var selected = false;
+     var selected = false
      var mTextFieldSize by remember { mutableStateOf(Size.Zero)}
 
         DropdownMenu(

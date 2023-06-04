@@ -1,0 +1,27 @@
+package model
+
+enum class PotaraEffect {
+    RUSH_ATTACK,
+    SMASH_ATTACK,
+    RUSH_BLAST,
+    CHARGED_BLAST,
+    GRAB,
+    B2,
+    ULTIMATE,
+    ACTIVE_CHARGE_RATE,
+    PASSIVE_CHARGE_RATE,
+    B1_CHARGE_RATE,
+    SWITCH_GAUGE_CHARGE_RATE,
+    CLASH,
+    HP,
+    MPM_DURATION,
+    BASE_KI_POWER,
+    SCALING_ATTACK,
+    SCALING_DEFENSE,
+    SCALING_KI,
+    SCALING_SUPER,
+    ATTACK,
+    DEFENSE,
+    KI,
+    SUPER
+}

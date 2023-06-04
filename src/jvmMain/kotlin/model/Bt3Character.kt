@@ -25,20 +25,13 @@ data class Bt3Character (
     val baseVanishingAttackCount : Int,
     val baseDragonDashCount : Int,
 
-    val firstB2Name : String,
-    val firstB2Description : String,
-    val firstB2Damage : Int,
-    val firstB2BoostDamage : Int,
+    val firstB1 : B1Move,
+    val secondB1 : B1Move,
 
-    val secondB2Name : String,
-    val secondB2Description : String,
-    val secondB2Damage : Int,
-    val secondB2BoostDamage : Int,
+    val firstB2 : B2Move,
+    val secondB2 : B2Move,
+    val ultimate : B2Move
 
-    val ultimateName : String,
-    val ultimateDescription : String,
-    val ultimateDamage : Int,
-    val ultimateBoostDamage : Int,
 
 ){
 }
