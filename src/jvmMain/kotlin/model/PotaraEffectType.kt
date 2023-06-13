@@ -1,6 +1,6 @@
 package model
 
-enum class PotaraEffect {
+enum class PotaraEffectType {
     RUSH_ATTACK,
     SMASH_ATTACK,
     RUSH_BLAST,

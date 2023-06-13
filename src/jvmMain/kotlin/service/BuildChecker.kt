@@ -3,6 +3,8 @@ package service
 import model.Build
 import model.Lineup
 import model.Potara
+import java.util.*
+import kotlin.collections.ArrayList
 
 class BuildChecker {
 
@@ -28,11 +30,19 @@ class BuildChecker {
     }
 
     fun checkTooManyUses(teamLineup : Lineup){
-        //combine all potaras in to 1 list.
-        //map list to potara name and frequency of use
-        //compara frequency to potara use limit.
-        //if # of uses > use limit, return a message
+        val allPotaras = mutableListOf<Potara>();
+        teamLineup.teamBuilds.forEach {  fighterBuild -> allPotaras.addAll(fighterBuild.build)};
+        val uniquePotaras = allPotaras.toSet()
+        for (potara in uniquePotaras){
+
+            if(Collections.frequency(uniquePotaras, potara) > potara.useLimit){
+                teamLineup.teambuildErrors.add(potara.name + " has more than " + potara.useLimit + " uses")
+            }
+        }
+
     }
+
+    val healingCharacters = listOf<String>("Cell", "Cell (Semi-Perfect)", "Frieza", "Frieza (2nd form)")
 
     fun checkTeamHealingRules(teamLineup : Lineup){
         // check for Cell, Frieza, Cooler, and Supreme Kai

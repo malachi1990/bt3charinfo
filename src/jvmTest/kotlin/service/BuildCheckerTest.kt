@@ -30,6 +30,10 @@ class BuildCheckerTest {
         Assertions.assertEquals("Build is greater than 7 points.", build.buildErrors[0])
     }
 
+    @Test
+    fun testTooManyUses(){
+
+    }
 
     private fun buildPotara(name : String, cost : Short) : Potara{
         return Potara(name, "", cost, "", 5, mutableListOf())

@@ -70,9 +70,29 @@ class CsvImporter {
         return b2s
 
     }
-    fun importPlayerStats(){
-        val b1Data = Files.readAllLines(Paths.get("PlayerBaseStats.csv"))
+    fun importPlayerStats() : List<PlayerBaseStats>{
+        val fileContent = File(javaClass.getResource("/info/PlayerBaseStats.csv")!!.toURI())
+        val baseStats = mutableListOf<PlayerBaseStats>()
+        csvReader().open(fileContent) {
+            readAllAsSequence().forEach { row: List<String> ->
+                //Do something
+                //println(row)
 
+                baseStats.add(PlayerBaseStats(name = row[0], baseHP = row[1].toInt(),
+                    defenseLevel = row[2].toFloat(), baseRushMeleeDamage = row[3].toInt(),
+                    baseSmashMeleeDamage = row[4].toInt(), baseRushBlastDamage = row[5].toInt(),
+                    rushBlastVolleyCount = row[6].toInt(), baseVolleyDamage = row[7].toInt(),
+                    baseChargedBlastDamage = row[8].toInt(), baseThrowDamage = row[9].toInt(),
+                    baseActiveCharge = row[10].toInt(), basePassiveCharge = row[11].toInt(),
+                    baseKiPower = row[12].toInt(), baseB1charge = row[13].toInt(),
+                    maxblastStocks = row[14].toInt(), baseSwitchGaugeCharge = row[15].toInt(),
+                    baseEvilness = row[16].toInt(), baseMpmDuration = row[17].toInt(),
+                    baseVanishingAttackCount = row[18].toInt(), baseDragonDashCount = row[19].toInt(),
+                    baseUnderwaterActiveCharge = row[20].toInt()))
+
+            }
+        }
+        return baseStats
     }
 
     fun importUniqueCharacteristics() : List<PlayerUniqueCharacteristics> {

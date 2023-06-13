@@ -17,33 +17,34 @@ import view.TeamDropDown
 fun App() {
     var text by remember { mutableStateOf("Hello, World!1") }
     var text2 by remember { mutableStateOf("Hello button 2!") }
-
     var text3 by remember { mutableStateOf("Hello, World!3") }
     var text4 by remember { mutableStateOf("Hello button 4!") }
     var text5 by remember { mutableStateOf("Hello button 5!") }
 
     MaterialTheme {
         Row() {
-            Column(Modifier.align(Alignment.Top), Arrangement.Center, Alignment.End) {
-                Button(onClick = {
-                    text3 = "Hello, left colum1!"
-                }) {
-                    Text(text3)
-                }
-                Button(onClick = {
-                    text4 = "Hello, left colum2!"
-                }) {
-                    Text(text4)
-                }
-                Button(onClick = {
-                    text5 = "Hello, left colum5!"
-                }) {
-                    Text(text5)
-                }
+
+           Column(Modifier.align(Alignment.Top), Arrangement.Center, Alignment.End) {
+//                Button(onClick = {
+//                    text3 = "Hello, left colum1!"
+//                }) {
+//                    Text(text3)
+//                }
+//                Button(onClick = {
+//                    text4 = "Hello, left colum2!"
+//                }) {
+//                    Text(text4)
+//                }
+//                Button(onClick = {
+//                    text5 = "Hello, left colum5!"
+//                }) {
+//                    Text(text5)
+//                }
+               TeamDropDown()
             }
             Column(Modifier.align(Alignment.CenterVertically), Arrangement.Center, Alignment.CenterHorizontally) {
                 Image(
-                    painter = painterResource("images/0.png"),
+                    painter = painterResource("images/59.png"),
                     contentDescription = "Sample",
                     modifier = Modifier.defaultMinSize()
                 )
@@ -62,6 +63,9 @@ fun App() {
             }
 
         }
+        Row(){
+
+        }
     }
 
 
@@ -73,5 +77,6 @@ fun main() = application {
         title = "DBZ League Character viewer"
     ) {
         App()
+        TeamDropDown()
     }
 }

@@ -44,4 +44,13 @@ class CsvImporterTest {
         Assertions.assertEquals( 8, characteristics[0].uniqueCharacteristics.size)
         Assertions.assertTrue(characteristics[0].uniqueCharacteristics.last().isEmpty())
     }
+
+    @Test
+    fun testBaseStatsImporter(){
+        val characteristics = CsvImporter().importPlayerStats()
+        Assertions.assertEquals("Adult Gohan", characteristics[0].name)
+        Assertions.assertEquals(1190, characteristics[0].baseThrowDamage)
+        Assertions.assertEquals("Baby Vegeta (Giant Ape)", characteristics[14].name)
+        Assertions.assertEquals(2450, characteristics[14].baseThrowDamage)
+    }
 }
