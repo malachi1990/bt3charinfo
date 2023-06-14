@@ -5,8 +5,8 @@ import model.schedule.Team
 
 
 class MatchBuilder {
-    fun buildAllPairings(allTeams: List<Team>): List<Match>? {
-        val homeGameProcessor = HomeGameProcessor();
+    fun buildAllPairings(allTeams: MutableList<Team>): MutableList<Match> {
+        val homeGameProcessor = HomeGameProcessor()
 
         val mainSeasonMatches: MutableList<Match> = ArrayList<Match>()
         for (team in allTeams) {
@@ -20,11 +20,10 @@ class MatchBuilder {
                     continue
                 }
                 val homeGame: Boolean = homeGameProcessor.isHomeGame(team, opponent)
-                var match: Match
-                if (homeGame) {
-                    match = Match(homeTeam = team, week = 0, opposingTeam = opponent)
+                val match = if (homeGame) {
+                    Match(homeTeam = team, week = 0, opposingTeam = opponent)
                 } else {
-                    match = Match(homeTeam = opponent, week = 0, opposingTeam = team)
+                    Match(homeTeam = opponent, week = 0, opposingTeam = team)
                 }
                 team.addMatchToSchedule(match)
                 opponent.addMatchToSchedule(match)

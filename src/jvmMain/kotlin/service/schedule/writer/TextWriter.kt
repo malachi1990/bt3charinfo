@@ -10,7 +10,7 @@ import java.util.function.Consumer
 
 class TextWriter {
 
-    fun writeToFile(seasonSchedule: Map<Int?, List<Match>>, allTeams: List<Team>, filePath: String) {
+    fun writeToFile(seasonSchedule: Map<Int, List<Match>>, allTeams: List<Team>, filePath: String) {
         println("Writing schedule to plain text file.")
         val builder = StringBuilder()
         allTeams.forEach(Consumer { team: Team -> builder.append(team.printSchedule()) })

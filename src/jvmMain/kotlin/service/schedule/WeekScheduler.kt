@@ -12,7 +12,7 @@ class WeekScheduler {
     private val rng: Random = Random.Default
 
 
-    fun buildSchedule(mainSeasonMatches: List<Match>): Map<Int, List<Match>> {
+    fun buildSchedule(mainSeasonMatches: MutableList<Match>): Map<Int, MutableList<Match>> {
         val weeks = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)
         //need to make a copy of the list so that we can call this method multiple times
         val mainSeasonMatchesIdem: MutableList<Match> = ArrayList(mainSeasonMatches)
@@ -48,11 +48,11 @@ class WeekScheduler {
                 pairedTeams.add(firstDiv.homeTeam)
                 pairedTeams.add(firstDiv.getAwayTeam())
                 eligibleMatches.remove(firstDiv)
-                eligibleMatches.removeIf(Predicate<Match> { match: Match ->
+                eligibleMatches.removeIf { match: Match ->
                     pairedTeams.contains(match.getAwayTeam()) || pairedTeams.contains(
                         match.homeTeam
                     )
-                })
+                }
                 assert(
                     eligibleMatches.size == 1 //sanity check;
                 )
@@ -89,7 +89,7 @@ class WeekScheduler {
                                 mainSeasonMatchesIdem.add(match)
                             }
                         }
-                        weeklyMatches.removeIf(Predicate<Match> { match: Match -> !match.isDivisionalMatch() })
+                        weeklyMatches.removeIf { match: Match -> !match.isDivisionalMatch() }
                         //                            System.out.println("unable to completely assign week, restarting week");
                         pairedTeams.clear()
                         for (match in weeklyMatches) {

@@ -9,7 +9,7 @@ import java.util.function.Consumer
 
 
 class MarkdownWriter {
-    fun printScheduleByWeek(seasonSchedule: Map<Int?, List<Match>>, filePath: String) {
+    fun printScheduleByWeek(seasonSchedule: Map<Int, List<Match>>, filePath: String) {
         val schedule = buildScheduleByWeek(seasonSchedule)
         try {
             Files.writeString(Paths.get(filePath), schedule, StandardOpenOption.APPEND, StandardOpenOption.CREATE)
@@ -18,7 +18,7 @@ class MarkdownWriter {
         }
     }
 
-    fun buildScheduleByWeek(seasonSchedule: Map<Int?, List<Match>>): String {
+    fun buildScheduleByWeek(seasonSchedule: Map<Int, List<Match>>): String {
         println("Writing schedule by week to markdown file.")
         val builder = StringBuilder()
         seasonSchedule.forEach { (week: Int?, matches: List<Match?>) ->
@@ -59,14 +59,14 @@ class MarkdownWriter {
         return builder.toString()
     }
 
-    private fun getTeamScheduleHeader(): String? {
+    private fun getTeamScheduleHeader(): String {
         return """
                 |Match          |  Home Team            | Away Team        |
                 | :-------------| :---------------------| :----------------|
                 """.trimIndent()
     }
 
-    private fun getScheduleWeekHeader(): String? {
+    private fun getScheduleWeekHeader(): String {
         return """
                 |Match          |  Home Team            | Away Team        | Winner           |
                 | :-------------| :---------------------| :----------------| :----------------|
@@ -74,7 +74,7 @@ class MarkdownWriter {
     }
 
 
-    fun getScheduleMarkdown(team: Team): String? {
+    fun getScheduleMarkdown(team: Team): String {
         val builder = StringBuilder(200)
         for (match in team.getSchedule()) {
             builder.append("|").append(match.week)
@@ -90,7 +90,7 @@ class MarkdownWriter {
     }
 
 
-    fun getScheduleMarkdown(match: Match, week: Int): String? {
+    fun getScheduleMarkdown(match: Match, week: Int): String {
         val builder = StringBuilder(200)
         builder.append("|").append(week)
         if (match.isDivisionalMatch()) {
