@@ -10,7 +10,8 @@ fun BenchCheckView(roster : MasterList, faList : List<String>) {
     var thirdChar by remember { mutableStateOf(roster.name) }
     var fourthChar by remember { mutableStateOf(roster.name) }
     var fifthChar by remember { mutableStateOf(roster.name) }
-
     var freeAgent by remember { mutableStateOf(faList.first()) }
+
+
 
 }

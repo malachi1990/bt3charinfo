@@ -1,16 +1,9 @@
 import androidx.compose.desktop.ui.tooling.preview.Preview
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import view.TeamDropDown
+import view.ScheduleGeneratorView
 
 @Composable
 @Preview
@@ -22,9 +15,10 @@ fun App() {
     var text5 by remember { mutableStateOf("Hello button 5!") }
 
     MaterialTheme {
-        Row() {
+        ScheduleGeneratorView()
+//        Row() {
 
-           Column(Modifier.align(Alignment.Top), Arrangement.Center, Alignment.End) {
+//           Column(Modifier.align(Alignment.Top), Arrangement.Center, Alignment.End) {
 //                Button(onClick = {
 //                    text3 = "Hello, left colum1!"
 //                }) {
@@ -40,32 +34,32 @@ fun App() {
 //                }) {
 //                    Text(text5)
 //                }
-               TeamDropDown()
-            }
-            Column(Modifier.align(Alignment.CenterVertically), Arrangement.Center, Alignment.CenterHorizontally) {
-                Image(
-                    painter = painterResource("images/59.png"),
-                    contentDescription = "Sample",
-                    modifier = Modifier.defaultMinSize()
-                )
-            }
-            Column(Modifier.align(Alignment.Top), Arrangement.Center, Alignment.End) {
-                Button(onClick = {
-                    text = "Hello, Desktop!"
-                }) {
-                    Text(text)
-                }
-                Button(onClick = {
-                    text2 = "Button 2, Desktop!"
-                }) {
-                    Text(text2)
-                }
-            }
+//               TeamDropDown()
+//            }
+//            Column(Modifier.align(Alignment.CenterVertically), Arrangement.Center, Alignment.CenterHorizontally) {
+//                Image(
+//                    painter = painterResource("images/59.png"),
+//                    contentDescription = "Sample",
+//                    modifier = Modifier.defaultMinSize()
+//                )
+//            }
+//            Column(Modifier.align(Alignment.Top), Arrangement.Center, Alignment.End) {
+//                Button(onClick = {
+//                    text = "Hello, Desktop!"
+//                }) {
+//                    Text(text)
+//                }
+//                Button(onClick = {
+//                    text2 = "Button 2, Desktop!"
+//                }) {
+//                    Text(text2)
+//                }
+//            }
 
-        }
-        Row(){
-
-        }
+//        }
+//        Row(){
+//
+//        }
     }
 
 
@@ -77,6 +71,7 @@ fun main() = application {
         title = "DBZ League Character viewer"
     ) {
         App()
-        TeamDropDown()
+//        TeamDropDown()
+        ScheduleGeneratorView ()
     }
 }
