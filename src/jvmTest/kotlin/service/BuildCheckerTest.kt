@@ -1,15 +1,15 @@
 package service
 
 import model.Build
-import model.Potara
+import model.potara.Potara
 import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Test
 
 class BuildCheckerTest {
 
     @Test
     fun testBuildCostRuleEmptyBuild(){
-        var build = Build("Android 17", mutableListOf(), mutableListOf())
+        val build = Build("Android 17", mutableListOf(), mutableListOf())
         BuildChecker().checkBuildCost(build)
         Assertions.assertTrue(build.buildErrors.isEmpty())
     }
@@ -35,7 +35,7 @@ class BuildCheckerTest {
 
     }
 
-    private fun buildPotara(name : String, cost : Short) : Potara{
+    private fun buildPotara(name : String, cost : Short) : Potara {
         return Potara(name, "", cost, "", 5, mutableListOf())
     }
 }

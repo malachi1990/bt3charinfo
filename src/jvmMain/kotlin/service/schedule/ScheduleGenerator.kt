@@ -5,7 +5,6 @@ import model.schedule.Match
 import model.schedule.Team
 import service.schedule.writer.MarkdownWriter
 import service.schedule.writer.TextWriter
-import java.util.*
 
 
 class ScheduleGenerator {

@@ -6,5 +6,6 @@ data class B2Move(val characterName : String,
                   val damage : Int,
                   val boostedDamage: Int,
                   val type : String,
-                  val description : String) {
+                  val description : String,
+    val isUltimate : Boolean) {
 }

@@ -3,22 +3,24 @@ package view
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.text.BasicText
-import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.material.*
+import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedTextField
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.unit.toSize
 import model.schedule.Division
 import model.schedule.Team
 import service.schedule.ScheduleGenerator
 
 
 @Composable
-fun ScheduleGeneratorView () {
+fun scheduleGeneratorView () {
+
     var northKaiSlot1 by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue()) }
     var northKaiSlot2 by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue()) }
     var northKaiSlot3 by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue()) }
@@ -40,193 +42,206 @@ fun ScheduleGeneratorView () {
     var southKaiSlot4 by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue()) }
 
 
-    Row() {
-        Column() {
-            Box() {
+    val northKaiSlots = listOf(northKaiSlot1, northKaiSlot2, northKaiSlot3, northKaiSlot4)
+    val eastKaiSlots = listOf(eastKaiSlot1, eastKaiSlot2, eastKaiSlot3, eastKaiSlot4)
+    val westKaiSlots = listOf(westKaiSlot1, westKaiSlot2, westKaiSlot3, westKaiSlot4)
+    val southKaiSlots = listOf(southKaiSlot1, southKaiSlot2, southKaiSlot3, southKaiSlot4)
+
+    val focusRequester = remember { FocusRequester() }
+
+    Row {
+        Column {
+            Text("North Kai Teams")
+
+            Box {
                 OutlinedTextField(
                     value = northKaiSlot1,
                     onValueChange = {
                         northKaiSlot1 = it
                     },
-                    label = {Text("North Kai Team")}
+                    placeholder = { Text("North Kai Team") }
                 )
             }
-            Box() {
+            Box {
                 OutlinedTextField(
                     value = northKaiSlot2,
                     onValueChange = {
                         northKaiSlot2 = it
                     },
-                    label = {Text("North Kai Team")}
+                    placeholder = { Text("North Kai Team") }
                 )
             }
-            Box() {
+            Box {
                 OutlinedTextField(
                     value = northKaiSlot3,
                     onValueChange = {
                         northKaiSlot3 = it
+
                     },
-                    label = {Text("North Kai Team")}
+                    placeholder = { Text("North Kai Team") }
                 )
             }
-            Box() {
+            Box {
                 OutlinedTextField(
                     value = northKaiSlot4,
                     onValueChange = {
                         northKaiSlot4 = it
                     },
-                    label = {Text("North Kai Team")}
+                    placeholder = { Text("North Kai Team") }
                 )
             }
         }
-        Column() {
-            Box() {
+        Column {
+            Box {
+                Text("East Kai Teams")
+            }
+            Box {
                 OutlinedTextField(
                     value = eastKaiSlot1,
                     onValueChange = {
                         eastKaiSlot1 = it
                     },
-                    label = {Text("East Kai Team")}
+                    placeholder = { Text("East Kai Team") }
                 )
             }
-            Box() {
+            Box {
                 OutlinedTextField(
                     value = eastKaiSlot2,
                     onValueChange = {
                         eastKaiSlot2 = it
                     },
-                    label = {Text("East Kai Team")}
+                    placeholder = { Text("East Kai Team") }
                 )
             }
-            Box() {
+            Box {
                 OutlinedTextField(
                     value = eastKaiSlot3,
                     onValueChange = {
                         eastKaiSlot3 = it
                     },
-                    label = {Text("East Kai Team")}
+                    placeholder = { Text("East Kai Team") }
                 )
             }
-            Box() {
+            Box {
                 OutlinedTextField(
                     value = eastKaiSlot4,
                     onValueChange = {
                         eastKaiSlot4 = it
                     },
-                    label = {Text("East Kai Team")}
+                    placeholder = { Text("East Kai Team") }
                 )
             }
         }
-        Column() {
-            Box() {
+        Column {
+            Box {
+                Text("West Kai Teams")
+            }
+            Box {
                 OutlinedTextField(
                     value = westKaiSlot1,
                     onValueChange = {
                         westKaiSlot1 = it
                     },
-                    label = {Text("West Kai Team")}
+                    placeholder = { Text("West Kai Team") }
                 )
             }
-            Box() {
+            Box {
                 OutlinedTextField(
                     value = westKaiSlot2,
                     onValueChange = {
                         westKaiSlot2 = it
                     },
-                    label = {Text("West Kai Team")}
+                    placeholder = { Text("West Kai Team") }
                 )
             }
-            Box() {
+            Box {
                 OutlinedTextField(
                     value = westKaiSlot3,
                     onValueChange = {
                         westKaiSlot3 = it
                     },
-                    label = {Text("West Kai Team")}
+                    placeholder = { Text("West Kai Team") }
                 )
             }
-            Box() {
+            Box {
                 OutlinedTextField(
                     value = westKaiSlot4,
                     onValueChange = {
                         westKaiSlot4 = it
                     },
-                    label = {Text("West Kai Team")}
+                    placeholder = { Text("West Kai Team") }
                 )
             }
         }
-        Column() {
-            Box() {
+        Column {
+            Box {
+                Text("South Kai Teams")
+            }
+            Box {
                 OutlinedTextField(
                     value = southKaiSlot1,
                     onValueChange = {
                         southKaiSlot1 = it
+
                     },
-                    label = {Text("South Kai Team")}
+                    placeholder = { Text("South Kai Team") }
                 )
             }
-            Box() {
+            Box {
                 OutlinedTextField(
                     value = southKaiSlot2,
                     onValueChange = {
                         southKaiSlot2 = it
                     },
-                    label = {Text("South Kai Team")}
+                    placeholder = { Text("South Kai Team") }
                 )
             }
-            Box() {
+            Box {
                 OutlinedTextField(
                     value = southKaiSlot3,
                     onValueChange = {
                         southKaiSlot3 = it
                     },
-                    label = {Text("South Kai Team")}
+                    placeholder = { Text("South Kai Team") }
                 )
             }
-            Box() {
+            Box {
                 OutlinedTextField(
                     value = southKaiSlot4,
                     onValueChange = {
                         southKaiSlot4 = it
                     },
-                    label = {Text("South Kai Team")}
+                    placeholder = { Text("South Kai Team") }
                 )
             }
 
         }
-        Column() {
-            Box() {
+        Column {
+            Text("Generate Schedule here")
+
+
+            Box {
                 Button(
                     onClick = {
-
-                        ScheduleGenerator().
-                            generateSchedule(
-                                buildTeamObject(listOf(northKaiSlot1.text, northKaiSlot2.text, northKaiSlot3.text, northKaiSlot4.text), Division.NORTH_KAI),
-                                buildTeamObject(listOf(eastKaiSlot1.text, eastKaiSlot2.text, eastKaiSlot3.text, eastKaiSlot4.text), Division.EAST_KAI),
-                                buildTeamObject(listOf(westKaiSlot1.text, westKaiSlot2.text, westKaiSlot3.text, westKaiSlot4.text), Division.WEST_KAI),
-                                buildTeamObject(listOf(southKaiSlot1.text, southKaiSlot2.text, southKaiSlot3.text, southKaiSlot4.text), Division.SOUTH_KAI))
+                        ScheduleGenerator().generateSchedule(
+                            buildTeamFromTextFieldList(northKaiSlots, Division.NORTH_KAI),
+                            buildTeamFromTextFieldList(eastKaiSlots, Division.EAST_KAI),
+                            buildTeamFromTextFieldList(westKaiSlots, Division.WEST_KAI),
+                            buildTeamFromTextFieldList(southKaiSlots, Division.SOUTH_KAI)
+                        )
                     },
+                    modifier = Modifier.focusRequester(focusRequester),
                     shape = MaterialTheme.shapes.medium
-                ){
+                ) {
                     Text(text = "Generate Schedule")
                 }
             }
         }
 
     }
+
 }
 
-fun buildTeamObject(teamNames : List<String>, division: Division) : MutableList<Team>{
-    val teams = mutableListOf<Team>()
-    teamNames.forEach{team -> teams.add(Team(team, division, mutableListOf()))}
-    return teams
-}
-
-@Composable
-fun getTextSaver() : String {
-    val slot by remember { mutableStateOf("") }
-    return slot
-}
 
 fun buildTeamFromTextFieldList(teamNames : List<TextFieldValue>, division: Division) : MutableList<Team> {
     val teams = mutableListOf<Team>()

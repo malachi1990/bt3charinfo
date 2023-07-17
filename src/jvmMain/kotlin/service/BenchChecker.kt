@@ -14,7 +14,7 @@ class BenchChecker {
         val messages: MutableSet<String> = HashSet()
         val lineups = buildLineups(benches)
         messages.addAll(checkFor12WeekRule(benches, lineups)!!)
-        messages.addAll(checkWeeklyLineupChanges(lineups)!!)
+        messages.addAll(checkWeeklyLineupChanges(lineups))
         messages.addAll(checkWeeklyBenchCount(benches)!!)
         return messages.toMutableList()
     }
@@ -32,7 +32,7 @@ class BenchChecker {
         return lineups
     }
 
-    private fun checkFor12WeekRule(benches: SeasonBenches, lineups: List<BenchLineup>): List<String>? {
+    private fun checkFor12WeekRule(benches: SeasonBenches, lineups: List<BenchLineup>): List<String> {
         val messages: MutableList<String> = ArrayList()
         for (fighter in benches.fighters) {
             var count = 0
@@ -64,7 +64,7 @@ class BenchChecker {
         return messages
     }
 
-    private fun checkWeeklyBenchCount(benches: SeasonBenches): List<String>? {
+    private fun checkWeeklyBenchCount(benches: SeasonBenches): List<String> {
         val messages: MutableList<String> = ArrayList()
         val fa: String = benches.fighters.get(benches.fighters.size - 1)
         val weeklyBenches: List<String?> = benches.benches.stream().map(Bench::weeklyBench).toList()

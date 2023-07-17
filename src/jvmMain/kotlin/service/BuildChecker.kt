@@ -2,9 +2,8 @@ package service
 
 import model.Build
 import model.Lineup
-import model.Potara
+import model.potara.Potara
 import java.util.*
-import kotlin.collections.ArrayList
 
 class BuildChecker {
 
@@ -15,7 +14,7 @@ class BuildChecker {
     }
 
     fun checkTeamBuild(teamLineup : Lineup){
-        val buildErrors = ArrayList<String>();
+        val buildErrors = ArrayList<String>()
         for(fighter in teamLineup.teamBuilds){
             buildErrors.addAll(checkSingleBuild(fighter))
 
@@ -30,7 +29,7 @@ class BuildChecker {
     }
 
     fun checkTooManyUses(teamLineup : Lineup){
-        val allPotaras = mutableListOf<Potara>();
+        val allPotaras = mutableListOf<Potara>()
         teamLineup.teamBuilds.forEach {  fighterBuild -> allPotaras.addAll(fighterBuild.build)};
         val uniquePotaras = allPotaras.toSet()
         for (potara in uniquePotaras){

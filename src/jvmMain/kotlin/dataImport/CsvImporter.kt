@@ -61,9 +61,9 @@ class CsvImporter {
                 val thirdB2Damage = damageFormatter.parse(row[15]).toInt()
                 val thirdB2DamageBoosted = damageFormatter.parse(row[16]).toInt()
 
-                b2s.add(B2Move(row[0], row[1], firstB2Cost, firstB2Damage, firstB2DamageBoosted, row[5], row[6]))
-                b2s.add(B2Move(row[0], row[7], secondB2Cost, secondB2Damage, secondB2DamageBoosted, row[11], row[12]))
-                b2s.add(B2Move(row[0], row[13], thirdB2Cost, thirdB2Damage, thirdB2DamageBoosted, row[17], row[18]))
+                b2s.add(B2Move(row[0], row[1], firstB2Cost, firstB2Damage, firstB2DamageBoosted, row[5], row[6], false))
+                b2s.add(B2Move(row[0], row[7], secondB2Cost, secondB2Damage, secondB2DamageBoosted, row[11], row[12], false))
+                b2s.add(B2Move(row[0], row[13], thirdB2Cost, thirdB2Damage, thirdB2DamageBoosted, row[17], row[18], true))
 
             }
         }

@@ -1,21 +1,18 @@
+
 import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.material.MaterialTheme
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
-import view.ScheduleGeneratorView
+import view.benchCheckView
 
 @Composable
 @Preview
 fun App() {
-    var text by remember { mutableStateOf("Hello, World!1") }
-    var text2 by remember { mutableStateOf("Hello button 2!") }
-    var text3 by remember { mutableStateOf("Hello, World!3") }
-    var text4 by remember { mutableStateOf("Hello button 4!") }
-    var text5 by remember { mutableStateOf("Hello button 5!") }
 
     MaterialTheme {
-        ScheduleGeneratorView()
+        benchCheckView()
+//        scheduleGeneratorView()
 //        Row() {
 
 //           Column(Modifier.align(Alignment.Top), Arrangement.Center, Alignment.End) {
@@ -38,7 +35,7 @@ fun App() {
 //            }
 //            Column(Modifier.align(Alignment.CenterVertically), Arrangement.Center, Alignment.CenterHorizontally) {
 //                Image(
-//                    painter = painterResource("images/59.png"),
+//                    painter = painterResource("images/200.png"),
 //                    contentDescription = "Sample",
 //                    modifier = Modifier.defaultMinSize()
 //                )
@@ -72,6 +69,6 @@ fun main() = application {
     ) {
         App()
 //        TeamDropDown()
-        ScheduleGeneratorView ()
+//        scheduleGeneratorView ()
     }
 }
