@@ -10,8 +10,10 @@ enum class PotaraEffectType {
     GRAB_UP,
     B2_COST_DOWN,
     ULTIMATE,
-    ACTIVE_CHARGE_RATE,
-    PASSIVE_CHARGE_RATE,
+    ACTIVE_KI_UP,
+    ACTIVE_CHARGE_DOWN,
+    KI_REGEN, //tension up, high tension and super mode
+    PASSIVE_KI, //hatred of saiyans
     B1_CHARGE_RATE,
     SWITCH_GAUGE_CHARGE_RATE,
     CLASH,

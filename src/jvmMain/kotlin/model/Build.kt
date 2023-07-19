@@ -21,4 +21,18 @@ data class Build(val characterName : String,
         }
         return false
     }
+
+    fun getScale(effect: PotaraEffectType): Int {
+        var intScales = mutableListOf<Int>()
+        build.forEach{ potara ->
+            intScales.add(potara.getScale(effect))
+        }
+        intScales.removeIf{ scale -> scale == 0}
+        intScales.sortWith(reverseOrder())
+        if(intScales.size > 0) {
+            return intScales[0]
+        }
+
+        return 0
+    }
 }

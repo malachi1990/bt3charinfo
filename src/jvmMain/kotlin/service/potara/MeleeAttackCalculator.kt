@@ -26,6 +26,6 @@ class MeleeAttackCalculator {
             damage *= 0.9
         }
 
-        return damage.toInt()
+        return (damage + (10 - damage % 10)).toInt()
     }
 }

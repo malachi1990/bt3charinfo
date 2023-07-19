@@ -16,13 +16,13 @@ class CsvImporter {
 
     fun importTeamData()  : List<MasterList>{
 
-        val fileContent = javaClass.getResource("/info/Teams.csv")?.readText()
+        val fileContent = File(javaClass.getResource("/info/Teams.csv")!!.toURI() )
         val masterLists = mutableListOf<MasterList>()
-        if (fileContent != null) {
-            val teams = fileContent.split("\\r?\\n")
-            for(team in teams){
-                val parts = team.split(",")
-                masterLists.add(MasterList(parts[0], parts.subList(1, parts.size)))
+        csvReader().open(fileContent) {
+            readAllAsSequence().forEach { row: List<String> ->
+                //Do something
+                //println(row) //[a, b, c]
+                masterLists.add(MasterList(row[0], row.subList(1, row.size)))
             }
         }
         return masterLists

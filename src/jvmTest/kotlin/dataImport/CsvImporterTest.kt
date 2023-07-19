@@ -9,6 +9,7 @@ class CsvImporterTest {
     fun testTeamImporter(){
         val masterLists = CsvImporter().importTeamData()
         Assertions.assertEquals("Androids", masterLists[0].name)
+        Assertions.assertEquals("Banned", masterLists.last().name)
     }
 
     @Test
